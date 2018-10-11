@@ -4,8 +4,8 @@ import com.sun.istack.internal.NotNull;
 
 public class Stack<T> {
 
-    protected Integer top = 0;
-    protected Integer n;
+    protected @NotNull Integer top = 0;
+    protected @NotNull Integer n;
     protected T array[];
 
     public Stack(@NotNull Integer n) {
