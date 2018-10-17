@@ -2,61 +2,52 @@ package vlad.shumilov;
 
 public class List<T> {
 
-    protected class Node<T> {
-        T data;
-        Node<T> prev;
-        Node<T> next;
-
-        Node(T data) {
-            this.data = data;
-        }
-    }
-
     protected Node<T> head;
+    protected Node<T> currentNode;
 
     public void insert(T data) {
         Node<T> node = new Node<>(data);
         node.next = head;
 
         if (head != null) {
-            node.prev = node;
+            head.prev = node;
         }
 
         head = node;
     }
 
     public void remove(T data) {
-        Node<T> node = getByData(data);
+        getByData(data);
 
-        if (node == null) {
+        if (currentNode == null) {
             return;
         }
 
-        if (node.prev != null) {
-            node.prev.next = node.next;
+        if (currentNode.prev != null) {
+            currentNode.prev.next = currentNode.next;
         } else {
-            head = node.next;
+            head = currentNode.next;
         }
 
-        if (node.next != null) {
-            node.next.prev = node.prev;
+        if (currentNode.next != null) {
+            currentNode.next.prev = currentNode.prev;
         }
 
-        node = null;
+        currentNode = null;
     }
 
     public Node<T> getByData(T data) {
-        Node<T> node = head;
+        currentNode = head;
 
-        while (node.next != null) {
-            if (node.data.equals(data)) {
-                return node;
+        while (currentNode.next != null) {
+            if (currentNode.data.equals(data)) {
+                return currentNode;
             }
 
-            node = node.next;
+            currentNode = currentNode.next;
         }
 
-        return node;
+        return currentNode;
     }
 
     public void out() {
@@ -72,5 +63,7 @@ public class List<T> {
 
             node = node.next;
         }
+
+        System.out.print(node.data + "\n");
     }
 }
