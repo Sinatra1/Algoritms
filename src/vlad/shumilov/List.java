@@ -5,6 +5,16 @@ public class List<T> {
     protected Node<T> head;
     protected Node<T> currentNode;
 
+    protected class Node<T> {
+        T data;
+        Node<T> prev;
+        Node<T> next;
+
+        Node(T data) {
+            this.data = data;
+        }
+    }
+
     public void insert(T data) {
         Node<T> node = new Node<>(data);
         node.next = head;
