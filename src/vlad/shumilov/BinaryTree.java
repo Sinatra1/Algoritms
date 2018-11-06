@@ -6,9 +6,9 @@ public class BinaryTree<T> {
     protected class Node<T> {
         public T value;
 
-        Node<T> left;
-        Node<T> right;
-        Node<T> parent;
+        public Node<T> left;
+        public Node<T> right;
+        public Node<T> parent;
 
         Node(T value) {
             this.value = value;
@@ -74,10 +74,6 @@ public class BinaryTree<T> {
 
     }
 
-    public void delete() {
-        root = null;
-    }
-
     public BinaryTree<T> add(T value) {
         insert(value);
         return this;
@@ -99,7 +95,7 @@ public class BinaryTree<T> {
         return max(root).value;
     }
 
-    public Boolean isEmpty() {
+    protected Boolean isEmpty() {
         return root == null;
     }
 
@@ -313,7 +309,7 @@ public class BinaryTree<T> {
         walkInOrderDesc(x.left, fun);
     }
 
-    public Boolean less(T value1, T value2) {
-        return Integer.parseInt(value1.toString()) < Integer.parseInt(value2.toString());
+    protected Boolean less(T value1, T value2) {
+        return Double.parseDouble(value1.toString()) < Double.parseDouble(value2.toString());
     }
 }
