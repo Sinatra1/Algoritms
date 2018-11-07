@@ -67,7 +67,7 @@ public class BinaryTree<T> {
     protected Node<T> min;
     protected Node<T> max;
     protected Node<T> succ;
-    protected Node<T> root;
+    public Node<T> root;
     public Boolean valueCopy = true;
 
     BinaryTree() {
