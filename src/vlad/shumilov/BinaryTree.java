@@ -2,7 +2,7 @@ package vlad.shumilov;
 
 import java.util.function.Function;
 
-public class BinaryTree<T> {
+public class BinaryTree<T extends Number & Comparable<T>> {
     protected class Node<T> {
         public T value;
 
@@ -310,6 +310,6 @@ public class BinaryTree<T> {
     }
 
     protected Boolean less(T value1, T value2) {
-        return Double.parseDouble(value1.toString()) < Double.parseDouble(value2.toString());
+        return (value1.compareTo(value2) < 0);
     }
 }
