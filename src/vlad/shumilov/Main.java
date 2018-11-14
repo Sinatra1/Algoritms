@@ -12,8 +12,6 @@ public class Main {
         printList();
 
         printBinaryTree();
-
-        printRedBlackTree();
     }
 
     protected static void printStack() {
@@ -131,88 +129,6 @@ public class Main {
         binaryTree.remove(6);
 
         binaryTree.walkInOrderAsc(value ->
-        {
-            System.out.print(value + "\n");
-            return value;
-        });
-    }
-
-    public static void printRedBlackTree() {
-        RedBlackTree<Integer> redBlackTree = new RedBlackTree<>();
-
-        redBlackTree.add(9)
-                .add(10)
-                .add(3)
-                .add(2)
-                .add(6)
-                .add(7)
-                .add(5)
-                .add(8)
-                .add(11)
-                .add(1)
-                .add(4)
-                .add(12)
-                .add(13)
-                .add(15)
-                .add(14)
-                .add(16);
-
-        System.out.print("RedBlackTree min: " + redBlackTree.min() + "\n");
-        System.out.print("RedBlackTree max: " + redBlackTree.max() + "\n");
-
-        System.out.print("RedBlackTree asc order:\n");
-
-        RedBlackTree.Iterator i = redBlackTree.begin();
-
-        while (!i.equals(redBlackTree.end())) {
-            System.out.print(i.getCurrent() + "\n");
-            i.increment();
-        }
-
-        System.out.print(i.getCurrent() + "\n");
-
-        System.out.print("RedBlackTree desc order:\n");
-
-        RedBlackTree.Iterator j = redBlackTree.end();
-
-        while (!j.equals(redBlackTree.begin())) {
-            System.out.print(j.getCurrent() + "\n");
-            j.decrement();
-        }
-
-        System.out.print(j.getCurrent() + "\n");
-
-        System.out.print("RedBlackTree walkInOrderAsc:\n");
-
-        redBlackTree.walkInOrderAsc(value ->
-        {
-            System.out.print(value + "\n");
-            return value;
-        });
-
-        System.out.print("RedBlackTree walkInOrderDesc:\n");
-
-        redBlackTree.walkInOrderDesc(value ->
-        {
-            System.out.print(value + "\n");
-            return value;
-        });
-
-        Integer found1 = 5;
-
-        RedBlackTree.Iterator iter = redBlackTree.find(found1);
-
-        if (iter.getCurrent() == null) {
-            System.out.print(MessageFormat.format("RedBlackTree {0} not found\n", found1));
-        } else {
-            System.out.print(MessageFormat.format("RedBlackTree {0} was found: {1}\n", found1, iter));
-        }
-
-        redBlackTree.remove(9);
-        redBlackTree.remove(1);
-        redBlackTree.remove(6);
-
-        redBlackTree.walkInOrderAsc(value ->
         {
             System.out.print(value + "\n");
             return value;
