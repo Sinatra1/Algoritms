@@ -1,6 +1,7 @@
 package vlad.shumilov;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -12,6 +13,8 @@ public class Main {
         printList();
 
         printBinaryTree();
+
+        printInsertionSort();
     }
 
     protected static void printStack() {
@@ -133,5 +136,29 @@ public class Main {
             System.out.print(value + "\n");
             return value;
         });
+    }
+
+    protected static void printInsertionSort() {
+        System.out.print("insertionSort before:\n");
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        list.add(1);
+        list.add(5);
+        list.add(2);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + "\n");
+        }
+
+        InsertionSort insertionSort = new InsertionSort();
+        ArrayList<Integer> sortedList = insertionSort.sort(list);
+
+        System.out.print("insertionSort after sort:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
     }
 }

@@ -1,11 +1,11 @@
 package vlad.shumilov;
 
-public class List<T> {
+public class List<T extends Comparable<T>> {
 
     protected Node<T> head;
     protected Node<T> currentNode;
 
-    protected class Node<T> {
+    protected class Node<T extends Comparable<T>> {
         T data;
         Node<T> prev;
         Node<T> next;
@@ -75,5 +75,13 @@ public class List<T> {
         }
 
         System.out.print(node.data + "\n");
+    }
+
+    public Boolean isEmpty() {
+        return head == null;
+    }
+
+    public Node<T> getHead() {
+        return head;
     }
 }
