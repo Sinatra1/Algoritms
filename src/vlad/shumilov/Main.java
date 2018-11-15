@@ -15,6 +15,8 @@ public class Main {
         printBinaryTree();
 
         printInsertionSort();
+
+        printSelectionSort();
     }
 
     protected static void printStack() {
@@ -156,6 +158,30 @@ public class Main {
         ArrayList<Integer> sortedList = insertionSort.sort(list);
 
         System.out.print("insertionSort after sort:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
+    }
+
+    protected static void printSelectionSort() {
+        System.out.print("selectionSort before:\n");
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        list.add(1);
+        list.add(5);
+        list.add(2);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + "\n");
+        }
+
+        SelectionSort selectionSort = new SelectionSort();
+        ArrayList<Integer> sortedList = selectionSort.sort(list);
+
+        System.out.print("selectionSort after sort:\n");
 
         for (int i = 0; i < sortedList.size(); i++) {
             System.out.print(sortedList.get(i) + "\n");
