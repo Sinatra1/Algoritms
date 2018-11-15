@@ -17,6 +17,8 @@ public class Main {
         printInsertionSort();
 
         printSelectionSort();
+
+        printQuickSort();
     }
 
     protected static void printStack() {
@@ -182,6 +184,30 @@ public class Main {
         ArrayList<Integer> sortedList = selectionSort.sort(list);
 
         System.out.print("selectionSort after sort:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
+    }
+
+    protected static void printQuickSort() {
+        System.out.print("quickSort before:\n");
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        list.add(1);
+        list.add(5);
+        list.add(2);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + "\n");
+        }
+
+        QuickSort quickSort = new QuickSort<>(list);
+        ArrayList<Integer> sortedList = quickSort.sort();
+
+        System.out.print("quickSort after sort:\n");
 
         for (int i = 0; i < sortedList.size(); i++) {
             System.out.print(sortedList.get(i) + "\n");
