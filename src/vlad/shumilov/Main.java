@@ -12,6 +12,7 @@ public class Main {
         list.add(1);
         list.add(5);
         list.add(2);
+        list.add(6);
 
         printStack();
 
@@ -143,10 +144,29 @@ public class Main {
     protected static void printHeap(ArrayList<Integer> list) {
         Heap<Integer> heap = new Heap<>(list);
 
+        int start = 0;
+
+        while (start < heap.heapSize) {
+            if (heap.getParentByIndex(start) != null) {
+                System.out.print("Heap parent for " + heap.vector.get(start) + " : " + heap.getParentByIndex(start) + "\n");
+            }
+
+            if (heap.getLeftByIndex(start) != null) {
+                System.out.print("Heap left for " + heap.vector.get(start) + " : " + heap.getLeftByIndex(start) + "\n");
+            }
+
+            if (heap.getRightByIndex(start) != null) {
+                System.out.print("Heap right for " + heap.vector.get(start) + " : " + heap.getRightByIndex(start) + "\n");
+            }
+
+            start++;
+        }
+
         System.out.print("Heap max 1: " + heap.extractMax() + "\n");
         System.out.print("Heap max 2: " + heap.extractMax() + "\n");
 
         heap.insert(11);
+        heap.insert(9);
         heap.insert(12);
 
         System.out.print("Heap max 3: " + heap.extractMax() + "\n");
