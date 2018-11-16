@@ -1,21 +1,14 @@
 package vlad.shumilov;
 
-import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Heap<T extends Number & Comparable<T>> {
     protected Integer heapSize = 0;
-    protected Vector<T> vector;
+    protected ArrayList<T> list;
 
-    public void Heap(Integer b, Integer e) {
-        heapSize = e - b;
-        vector.setSize(heapSize);
-
-        List<T> sublist = vector.subList(b, e);
-
-        for (int i = 0; i < sublist.size(); i++) {
-            vector.set(i, sublist.get(i));
-        }
+    public Heap(ArrayList<T> list) {
+        heapSize = list.size();
+        this.list = list;
 
         int j = heapSize / 2;
 
@@ -30,8 +23,8 @@ public class Heap<T extends Number & Comparable<T>> {
             throw new RuntimeException("heap is empty");
         }
 
-        T max = vector.get(0);
-        vector.set(0, vector.get(--heapSize));
+        T max = list.get(0);
+        list.set(0, list.get(--heapSize));
 
         heapify(0);
 
@@ -39,17 +32,17 @@ public class Heap<T extends Number & Comparable<T>> {
     }
 
     public void heapify(Integer i) {
-        Integer l = 0;//TODO: left(i);
-        Integer r = 0;//TODO: right(i);
+        Integer l = 2*i + 1;
+        Integer r = 2*i + 2;
         Integer largest;
 
-        if (l < heapSize && (vector.get(i).compareTo(vector.get(l)) < 0)) {
+        if (l < heapSize && (list.get(i).compareTo(list.get(l)) < 0)) {
             largest = l;
         } else {
             largest = i;
         }
 
-        if (r < heapSize && (vector.get(largest).compareTo(vector.get(r)) < 0)) {
+        if (r < heapSize && (list.get(largest).compareTo(list.get(r)) < 0)) {
             largest = r;
         }
 
@@ -59,28 +52,28 @@ public class Heap<T extends Number & Comparable<T>> {
         }
     }
 
-    public void increase(Integer i, T value) {
-        if (!(i >= 0 && i < heapSize && (vector.get(i).compareTo(value) <=0))) {
-            throw new RuntimeException("Can not increase");
-        }
-
-        vector.set(i, value);
-
-        while (i > 0 && (vector.get(getParent(i)).compareTo(vector.get(i)) <= 0)) {
-            swap(i, getParent(i));
-            i = getParent(i);
-        }
-    }
-
     public void insert(T value) {
-        if (heapSize < vector.size()) {
-            vector.set(heapSize++, value);
+        if (heapSize < list.size()) {
+            list.set(heapSize++, value);
         } else {
-            vector.set(vector.size() + 1, value);
+            list.set(list.size() + 1, value);
             ++heapSize;
         }
 
         increase(heapSize-1, value);
+    }
+
+    protected void increase(Integer i, T value) {
+        if (!(i >= 0 && i < heapSize && (list.get(i).compareTo(value) <=0))) {
+            throw new RuntimeException("Can not increase");
+        }
+
+        list.set(i, value);
+
+        while (i > 0 && (list.get(getParent(i)).compareTo(list.get(i)) <= 0)) {
+            swap(i, getParent(i));
+            i = getParent(i);
+        }
     }
 
     protected Integer getParent(Integer i) {
@@ -88,9 +81,9 @@ public class Heap<T extends Number & Comparable<T>> {
     }
 
     protected void swap(Integer firstIndex, Integer secondIndex) {
-        T fist = vector.get(firstIndex);
-        T second = vector.get(secondIndex);
-        vector.set(firstIndex, second);
-        vector.set(secondIndex, fist);
+        T fist = list.get(firstIndex);
+        T second = list.get(secondIndex);
+        list.set(firstIndex, second);
+        list.set(secondIndex, fist);
     }
 }

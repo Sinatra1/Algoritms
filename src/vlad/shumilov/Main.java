@@ -21,6 +21,8 @@ public class Main {
 
         printBinaryTree((ArrayList<Integer>) list.clone());
 
+        printHeap((ArrayList<Integer>) list.clone());
+
         printInsertionSort((ArrayList<Integer>) list.clone());
 
         printSelectionSort((ArrayList<Integer>) list.clone());
@@ -136,6 +138,18 @@ public class Main {
             System.out.print(value + "\n");
             return value;
         });
+    }
+
+    protected static void printHeap(ArrayList<Integer> list) {
+        Heap<Integer> heap = new Heap<>(list);
+
+        System.out.print("Heap max 1: " + heap.extractMax() + "\n");
+        System.out.print("Heap max 2: " + heap.extractMax() + "\n");
+
+        heap.insert(11);
+        heap.insert(12);
+
+        System.out.print("Heap max 3: " + heap.extractMax() + "\n");
     }
 
     protected static void printInsertionSort(ArrayList<Integer> list) {
