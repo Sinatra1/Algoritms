@@ -13,10 +13,10 @@ public class QuickSort<T extends Comparable<T>> extends InsertionSort<T> {
     public ArrayList<T> sort() {
         checking(list);
 
-        return sort(0, list.size()-1);
+        return sort(0, list.size() - 1);
     }
 
-    public ArrayList<T> sort(Integer start, Integer end) {
+    protected ArrayList<T> sort(int start, int end) {
         checking(list);
 
         int xIndex = end - ((end - start) / 2);

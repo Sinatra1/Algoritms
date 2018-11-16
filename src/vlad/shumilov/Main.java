@@ -6,19 +6,28 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        list.add(1);
+        list.add(5);
+        list.add(2);
+
         printStack();
 
         printQueue();
 
         printList();
 
-        printBinaryTree();
+        printBinaryTree((ArrayList<Integer>) list.clone());
 
-        printInsertionSort();
+        printInsertionSort((ArrayList<Integer>) list.clone());
 
-        printSelectionSort();
+        printSelectionSort((ArrayList<Integer>) list.clone());
 
-        printQuickSort();
+        printQuickSort((ArrayList<Integer>) list.clone());
+
+        printMergeSort((ArrayList<Integer>) list.clone());
     }
 
     protected static void printStack() {
@@ -60,25 +69,12 @@ public class Main {
         list.out();
     }
 
-    protected static void printBinaryTree() {
+    protected static void printBinaryTree(ArrayList<Integer> list) {
         BinaryTree<Integer> binaryTree = new BinaryTree<>();
-        binaryTree
-                .add(9)
-                .add(10)
-                .add(3)
-                .add(2)
-                .add(6)
-                .add(7)
-                .add(5)
-                .add(8)
-                .add(11)
-                .add(1)
-                .add(4)
-                .add(12)
-                .add(13)
-                .add(15)
-                .add(14)
-                .add(16);
+
+        for (int i = 0; i < list.size(); i++) {
+            binaryTree.add(list.get(i));
+        }
 
         System.out.print("BinaryTree min: " + binaryTree.min() + "\n");
         System.out.print("BinaryTree max: " + binaryTree.max() + "\n");
@@ -142,15 +138,8 @@ public class Main {
         });
     }
 
-    protected static void printInsertionSort() {
+    protected static void printInsertionSort(ArrayList<Integer> list) {
         System.out.print("insertionSort before:\n");
-
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(3);
-        list.add(4);
-        list.add(1);
-        list.add(5);
-        list.add(2);
 
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + "\n");
@@ -166,15 +155,8 @@ public class Main {
         }
     }
 
-    protected static void printSelectionSort() {
+    protected static void printSelectionSort(ArrayList<Integer> list) {
         System.out.print("selectionSort before:\n");
-
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(3);
-        list.add(4);
-        list.add(1);
-        list.add(5);
-        list.add(2);
 
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + "\n");
@@ -190,15 +172,8 @@ public class Main {
         }
     }
 
-    protected static void printQuickSort() {
+    protected static void printQuickSort(ArrayList<Integer> list) {
         System.out.print("quickSort before:\n");
-
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(3);
-        list.add(4);
-        list.add(1);
-        list.add(5);
-        list.add(2);
 
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + "\n");
@@ -208,6 +183,23 @@ public class Main {
         ArrayList<Integer> sortedList = quickSort.sort();
 
         System.out.print("quickSort after sort:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
+    }
+
+    protected static void printMergeSort(ArrayList<Integer> list) {
+        System.out.print("mergeSort before:\n");
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + "\n");
+        }
+
+        MergeSort mergeSort = new MergeSort<>(list);
+        ArrayList<Integer> sortedList = mergeSort.sort();
+
+        System.out.print("mergeSort after sort:\n");
 
         for (int i = 0; i < sortedList.size(); i++) {
             System.out.print(sortedList.get(i) + "\n");
