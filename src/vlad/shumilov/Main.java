@@ -170,6 +170,8 @@ public class Main {
         heap.insert(12);
 
         System.out.print("Heap max 3: " + heap.extractMax() + "\n");
+
+        heap.sort();
     }
 
     protected static void printInsertionSort(ArrayList<Integer> list) {

@@ -13,8 +13,22 @@ public class Heap<T extends Number & Comparable<T>> {
         }
     }
 
+    public Vector<T> sort() {
+        if (isEmpty()) {
+            throw new RuntimeException("heap is empty");
+        }
+
+        for (int i = heapSize - 1; i > 0; i--) {
+            swap(0, i);
+            --heapSize;
+            heapify(0);
+        }
+
+        return vector;
+    }
+
     public T extractMax() {
-        if (!(heapSize > 0)) {
+        if (isEmpty()) {
             throw new RuntimeException("heap is empty");
         }
 
@@ -117,5 +131,9 @@ public class Heap<T extends Number & Comparable<T>> {
         T second = vector.get(secondIndex);
         vector.set(firstIndex, second);
         vector.set(secondIndex, fist);
+    }
+
+    protected Boolean isEmpty() {
+        return !(heapSize > 0);
     }
 }
