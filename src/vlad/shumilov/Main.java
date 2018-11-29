@@ -2,6 +2,7 @@ package vlad.shumilov;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class Main {
 
@@ -31,6 +32,8 @@ public class Main {
         printQuickSort((ArrayList<Integer>) list.clone());
 
         printMergeSort((ArrayList<Integer>) list.clone());
+
+        printCountingSort();
     }
 
     protected static void printStack() {
@@ -236,6 +239,35 @@ public class Main {
         ArrayList<Integer> sortedList = mergeSort.sort();
 
         System.out.print("mergeSort after sort:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
+    }
+
+    protected static void printCountingSort() {
+        System.out.print("countingSort before:\n");
+
+        ArrayList<Float> list = new ArrayList<>();
+        list.add(6.12f);
+        list.add(6.18f);
+        list.add(2.15f);
+        list.add(4.36f);
+        list.add(8.47f);
+        list.add(15.59f);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + "\n");
+        }
+
+        CountingSort<Float> countingSort = new CountingSort<>(list);
+
+        Vector<Float> sortedList = countingSort.sort(1559, value ->
+        {
+            return (int) (value * 100);
+        });
+
+        System.out.print("countingSort after sort:\n");
 
         for (int i = 0; i < sortedList.size(); i++) {
             System.out.print(sortedList.get(i) + "\n");
