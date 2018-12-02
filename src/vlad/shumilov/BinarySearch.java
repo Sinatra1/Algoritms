@@ -4,12 +4,19 @@ import java.util.ArrayList;
 
 public class BinarySearch<T extends Comparable<T>> {
     protected ArrayList<T> sortedList;
+    protected T value;
 
     public BinarySearch(ArrayList<T> sortedList) {
         this.sortedList = sortedList;
     }
 
     public Integer findIndex(T value) {
+        this.value = value;
+
+        if (value == null) {
+            throw new RuntimeException("value is null in BinarySearch");
+        }
+
         if (sortedList.isEmpty()) {
             throw new RuntimeException("sortedList is empty in BinarySearch");
         }
@@ -18,7 +25,8 @@ public class BinarySearch<T extends Comparable<T>> {
         int r = sortedList.size() - 1;
 
         while (l <= r) {
-            int i = l + (r - l) / 2;
+            int i = getDelimiterIndex(l, r);
+
             if (less(value, sortedList.get(i))) {
                 r = --i;
             } else if (less(sortedList.get(i), value)) {
@@ -29,6 +37,10 @@ public class BinarySearch<T extends Comparable<T>> {
         }
 
         return null;
+    }
+
+    protected int getDelimiterIndex(int l, int r) {
+        return l + (r - l) / 2;
     }
 
     protected Boolean less(T value1, T value2) {

@@ -36,6 +36,8 @@ public class Main {
         printCountingSort();
 
         printBinarySearch((ArrayList<Integer>) list.clone());
+
+        printInterpolationSearch((ArrayList<Integer>) list.clone());
     }
 
     protected static void printStack() {
@@ -291,10 +293,32 @@ public class Main {
         Integer index = binarySearch.findIndex(element);
 
         if (index != null) {
-            System.out.print("index of element " + element + " is " + index + "\n");
+            System.out.print("binarySearch index of element " + element + " is " + index + "\n");
             return;
         }
 
-        System.out.print("element " + element + " was not found\n");
+        System.out.print("binarySearch element " + element + " was not found\n");
+    }
+
+    protected static void printInterpolationSearch(ArrayList<Integer> list) {
+        MergeSort mergeSort = new MergeSort<>(list);
+        ArrayList<Integer> sortedList = mergeSort.sort();
+
+        System.out.print("interpolationSearch sorted list:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
+
+        InterpolationSearch<Integer> interpolationSearch = new InterpolationSearch<>(sortedList);
+        Integer element = 4;
+        Integer index = interpolationSearch.findIndex(element);
+
+        if (index != null) {
+            System.out.print("interpolationSearch index of element " + element + " is " + index + "\n");
+            return;
+        }
+
+        System.out.print("interpolationSearch element " + element + " was not found\n");
     }
 }
