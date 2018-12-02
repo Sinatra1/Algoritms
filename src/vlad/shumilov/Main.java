@@ -34,6 +34,8 @@ public class Main {
         printMergeSort((ArrayList<Integer>) list.clone());
 
         printCountingSort();
+
+        printBinarySearch((ArrayList<Integer>) list.clone());
     }
 
     protected static void printStack() {
@@ -272,5 +274,27 @@ public class Main {
         for (int i = 0; i < sortedList.size(); i++) {
             System.out.print(sortedList.get(i) + "\n");
         }
+    }
+
+    protected static void printBinarySearch(ArrayList<Integer> list) {
+        MergeSort mergeSort = new MergeSort<>(list);
+        ArrayList<Integer> sortedList = mergeSort.sort();
+
+        System.out.print("binarySearch sorted list:\n");
+
+        for (int i = 0; i < sortedList.size(); i++) {
+            System.out.print(sortedList.get(i) + "\n");
+        }
+
+        BinarySearch<Integer> binarySearch = new BinarySearch<>(sortedList);
+        Integer element = 4;
+        Integer index = binarySearch.findIndex(element);
+
+        if (index != null) {
+            System.out.print("index of element " + element + " is " + index + "\n");
+            return;
+        }
+
+        System.out.print("element " + element + " was not found\n");
     }
 }
