@@ -3,7 +3,7 @@ package vlad.shumilov;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Hash {
-    public static final int hashTableSize = 10;
+    public static final int hashTableSize = 2048;
     protected static final int isFreeCell = -1;
     protected static final int isRemovedCell = -2;
     protected Integer[] hashTable = new Integer[hashTableSize];
