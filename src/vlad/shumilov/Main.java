@@ -38,6 +38,8 @@ public class Main {
         printBinarySearch((ArrayList<Integer>) list.clone());
 
         printInterpolationSearch((ArrayList<Integer>) list.clone());
+
+        printHashSearch();
     }
 
     protected static void printStack() {
@@ -320,5 +322,30 @@ public class Main {
         }
 
         System.out.print("interpolationSearch element " + element + " was not found\n");
+    }
+
+    protected static void printHashSearch() {
+        Hash hash = new Hash();
+        hash.add(3);
+        hash.add(4);
+        hash.add(1);
+        hash.add(5);
+        hash.add(2);
+
+        System.out.print("hashSearch list:\n");
+
+        for (int i = 0; i < hash.hashTableSize; i++) {
+            System.out.print(hash.get(i) + "\n");
+        }
+
+        Integer element = 3;
+        Integer index = hash.findIndex(element);
+
+        if (index > 0) {
+            System.out.print("hashSearch index of element " + element + " is " + index + "\n");
+            return;
+        }
+
+        System.out.print("hashSearch element " + element + " was not found\n");
     }
 }
