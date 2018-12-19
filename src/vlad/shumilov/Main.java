@@ -40,6 +40,8 @@ public class Main {
         printInterpolationSearch((ArrayList<Integer>) list.clone());
 
         printHashSearch();
+
+        printHorspoolMatch();
     }
 
     protected static void printStack() {
@@ -347,5 +349,9 @@ public class Main {
         }
 
         System.out.print("hashSearch element " + element + " was not found\n");
+    }
+
+    protected static void printHorspoolMatch() {
+        HorspoolMatch horspoolMatch = new HorspoolMatch("АБРАКАДАБРА");
     }
 }
