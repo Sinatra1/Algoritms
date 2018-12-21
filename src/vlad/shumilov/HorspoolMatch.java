@@ -25,6 +25,32 @@ public class HorspoolMatch {
     }
 
     public int match(String text) {
+        if (text == null || text.isEmpty()) {
+            throw new RuntimeException("text is empty");
+        }
 
+        int m = substring.length();
+        int n = text.length();
+
+        for (int i = m-1; i < n; i += getShift(text.substring(i, i + 1))) {
+            int k = 0;
+            while (k < m && substring.substring(m-k-1, m-k).equals(text.substring(i-k, i-k+1))) {
+                k++;
+
+                if (k == m) {
+                    return i - m + 1;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    protected int getShift(String key) {
+        if (table.containsKey(key)) {
+            return table.get(key);
+        }
+
+        return substring.length();
     }
 }

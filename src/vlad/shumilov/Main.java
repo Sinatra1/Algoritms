@@ -352,6 +352,13 @@ public class Main {
     }
 
     protected static void printHorspoolMatch() {
-        HorspoolMatch horspoolMatch = new HorspoolMatch("АБРАКАДАБРА");
+        String key = "АБРАКАДАБРА";
+        String text = "вмуцкмукмукиуки" + key + "умукмукиукиукиуи";
+
+        HorspoolMatch horspoolMatch = new HorspoolMatch(key);
+
+        int pos = horspoolMatch.match(text);
+
+        System.out.print("position of " + key + " in text " + text + " is " + pos);
     }
 }
