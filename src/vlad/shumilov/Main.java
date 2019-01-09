@@ -42,6 +42,8 @@ public class Main {
         printHashSearch();
 
         printHorspoolMatch();
+
+        printBreadthFirstSearch();
     }
 
     protected static void printStack() {
@@ -360,5 +362,42 @@ public class Main {
         int pos = horspoolMatch.match(text);
 
         System.out.print("position of " + key + " in text " + text + " is " + pos);
+    }
+
+    protected static void printBreadthFirstSearch() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("тишь");
+        list.add("тушь");
+        list.add("туша");
+        list.add("душа");
+        list.add("дура");
+        list.add("муха");
+        list.add("мура");
+        list.add("фура");
+        list.add("фара");
+        list.add("кара");
+        list.add("кафе");
+        list.add("кафр");
+        list.add("каюр");
+        list.add("каре");
+        list.add("срок");
+        list.add("сток");
+        list.add("стон");
+        list.add("слон");
+        list.add("урок");
+        list.add("урюк");
+        list.add("крюк");
+        list.add("каюк");
+        list.add("урод");
+        list.add("брод");
+        list.add("бром");
+        list.add("гром");
+
+        Graph<String> graph = new Graph<>();
+
+        graph.fillGraphFromList(list);
+
+        Integer k = 0;
+        k = k + 1;
     }
 }
