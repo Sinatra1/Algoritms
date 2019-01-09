@@ -367,37 +367,36 @@ public class Main {
     protected static void printBreadthFirstSearch() {
         ArrayList<String> list = new ArrayList<>();
         list.add("тишь");
+        list.add("бром");
+        list.add("урод");
         list.add("тушь");
+        list.add("муха");
         list.add("туша");
         list.add("душа");
         list.add("дура");
-        list.add("муха");
+        list.add("каюр");
         list.add("мура");
         list.add("фура");
-        list.add("фара");
         list.add("кара");
         list.add("кафе");
         list.add("кафр");
-        list.add("каюр");
+        list.add("стон");
         list.add("каре");
         list.add("срок");
         list.add("сток");
-        list.add("стон");
-        list.add("слон");
+        list.add("фара");
+        list.add("каюк");
         list.add("урок");
         list.add("урюк");
         list.add("крюк");
-        list.add("каюк");
-        list.add("урод");
+        list.add("слон");
         list.add("брод");
-        list.add("бром");
         list.add("гром");
 
         Graph<String> graph = new Graph<>();
 
         graph.fillGraphFromList(list);
-
-        Integer k = 0;
-        k = k + 1;
+        graph.breadthFirstSearch(0);
+        graph.printPath(0, list.size()-1);
     }
 }
