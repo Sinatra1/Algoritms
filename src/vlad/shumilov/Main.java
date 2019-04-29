@@ -44,6 +44,8 @@ public class Main {
         printHorspoolMatch();
 
         printBreadthFirstSearch();
+
+        printAnagram();
     }
 
     protected static void printStack() {
@@ -398,5 +400,9 @@ public class Main {
         graph.fillGraphFromList(list);
         graph.breadthFirstSearch(0);
         graph.printPath(0, list.size()-1);
+    }
+
+    protected static void printAnagram() {
+        Anagram anagram = new Anagram("1234");
     }
 }
