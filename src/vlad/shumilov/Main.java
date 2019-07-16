@@ -74,11 +74,14 @@ public class Main {
         System.out.print("List:\n");
 
         List<String> list = new List<>();
-        list.insert("1");
-        list.insert("2");
+        list.insert("4");
         list.insert("3");
+        list.insert("2");
+        list.insert("1");
 
-        list.remove("2");
+        list.out();
+
+        list.reverse();
 
         list.out();
     }

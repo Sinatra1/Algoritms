@@ -84,4 +84,31 @@ public class List<T extends Comparable<T>> {
     public Node<T> getHead() {
         return head;
     }
+
+    public void reverse() {
+        Node<T> prev = null;
+        Node<T> cur = head;
+        Node<T> nex = cur.next;
+        Node<T> tmp = null;
+
+        if (cur == null || cur.next == null) {
+            return;
+        }
+
+        while (nex != null && nex.next != null) {
+            cur.next = prev;
+            tmp = nex.next;
+            nex.next = cur;
+
+            prev = cur;
+            cur = nex;
+            nex = tmp;
+        }
+
+        cur.next = prev;
+        nex.next = cur;
+        cur = nex;
+
+        head = cur;
+    }
 }
